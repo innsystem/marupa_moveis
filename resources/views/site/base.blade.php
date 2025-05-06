@@ -8,7 +8,7 @@
     <!-- Title-->
     <title>@yield('title') {{$getSettings['site_name']}}</title>
     <!-- Favicon-->
-    <link rel="shortcut icon" href="{{ $getSettings['favicon'] ? asset('storage/' . $getSettings['favicon']) : asset('favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('/marupa_icon.png') }}" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('/tpl_site/css/bootstrap.min.css') }}">
