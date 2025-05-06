@@ -13,4 +13,4 @@ jobs:
         host: ftp.marupamoveis.com.br 
         user: marupamoveis1
         password: Marupa411@#789
-        localDir: "dist"
+        localDir: "public_html"
