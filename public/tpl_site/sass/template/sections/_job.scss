@@ -1,0 +1,88 @@
+/* Job 1 ---------------------------------- */ 
+.job-list {
+    border: 1px solid $border-color;
+    padding: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+    &_title,
+    &_post,
+    &_time {
+        font-size: 30px;
+        font-family: 30px;
+        font-weight: 300;
+        color: $title-color;
+        text-transform: capitalize;
+        display: block;
+        margin-bottom: 0;
+        a {
+            color: inherit;
+            &:hover {
+                color: $theme-color;
+            }
+        }
+    }
+    &_post {
+        color: $theme-color;
+    }
+    &_num {
+        font-size: 15px;
+        font-family: $para-font;
+        color: $body-color;
+        margin-right: 7px;
+    }
+}
+
+@include ml {
+    .job-list {
+        &_title,
+        &_post,
+        &_time {
+            font-size: 28px;
+        }
+    }
+}
+
+@include lg {
+    .job-list {
+        &_title,
+        &_post,
+        &_time {
+            font-size: 26px;
+        }
+    }
+}
+
+@include sm {
+    .job-list {
+        padding: 30px 15px;
+        &_title,
+        &_post,
+        &_time {
+            font-size: 24px;
+        }
+    }
+}
+
+@include xs {
+    .job-list {
+        padding: 30px 15px;
+        flex-wrap: wrap;
+        gap: 10px 20px;
+        &_time {
+            width: 50%;
+            padding-left: 24px;
+        }
+    }
+}
+
+@include vxs {
+    .job-list_post {
+        width: 100%;
+        padding-left: 24px;
+    }
+}

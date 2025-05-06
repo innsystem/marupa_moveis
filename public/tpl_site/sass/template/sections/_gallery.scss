@@ -1,0 +1,58 @@
+/* Project 1 ---------------------------------- */
+.gallery-box { 
+    position: relative;
+    overflow: hidden;
+    --gap: 40px;
+    .project-img {
+        transition: 0.4s ease-in-out;
+        &:before {
+            content: '';
+            position: absolute;
+            inset: var(--gap);
+            background-image: linear-gradient(146.64deg, rgba(39, 39, 39, 0.5) 0%, rgba(39, 39, 39, 0.5) 100%);
+            border: 0.5px solid #d8b084;
+            backdrop-filter: blur(10px);
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.4s ease-in-out;
+        }
+    }
+    .gallery-content {
+        position: absolute;
+        bottom: var(--gap);
+        left: var(--gap);
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.4s ease-in-out;
+    }
+    .project-number {
+        margin-bottom: 15px;
+    }
+    &:hover {
+        .project-img {
+            &:before {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+        .gallery-content {
+            visibility: visible;
+            opacity: 1;
+            padding: var(--gap);
+        }
+    }
+}
+
+@include md {
+    .gallery-box {
+        --gap: 30px;
+        .project-img {
+            height: 340px;
+        }
+    }
+}
+@include vxs {
+    .gallery-box {
+        --gap: 20px;
+    }
+}

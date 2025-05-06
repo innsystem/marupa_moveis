@@ -1,0 +1,60 @@
+.slick-track>[class*=col] {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x)/ 2);
+  padding-left: calc(var(--bs-gutter-x)/ 2);
+  margin-top: var(--bs-gutter-y);
+}
+.variable-width .slick-track > [class*=-auto] {
+  width: auto !important;
+}
+
+@media (min-width: #{$lg}) {
+  .row:not([class*="gx-"]) {
+    --bs-gutter-x: 30px;
+  }
+}
+.gy-30 {
+  --bs-gutter-y: 30px;
+}
+
+.gy-40 {
+  --bs-gutter-y: 40px;
+}
+
+.gy-130 {
+  --bs-gutter-y: 130px;
+}
+
+@media (min-width: $xl) {
+  .gx-60 {
+    --bs-gutter-x: 60px;
+  }
+}
+
+@media (min-width: $ml) {
+  .gx-30 {
+    --bs-gutter-x: 30px;
+  }
+
+  .gx-25 {
+    --bs-gutter-x: 25px;
+  }
+
+  .gx-40 {
+    --bs-gutter-x: 40px;
+  }
+}
+
+@include lg {
+  .gy-30 {
+    --bs-gutter-y: 24px;
+  }
+}
+
+@include md {
+  .gy-130 {
+    --bs-gutter-y: 30px;
+  }
+}

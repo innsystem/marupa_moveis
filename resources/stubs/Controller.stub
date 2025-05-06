@@ -1,0 +1,113 @@
+<?php
+
+namespace App\Http\Controllers\{{folderUppercase}};
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Http;
+use App\Models\Status;
+use App\Models\{{modelNameSingular}};
+use Carbon\Carbon;
+use App\Services\{{modelNameSingular}}Service;
+
+class {{modelName}}Controller extends Controller
+{
+    public $name = '{{titlePage}}'; //  singular
+    public $folder = '{{folder}}.pages.{{modelNamePluralLowerCase}}';
+
+    protected ${{modelNameSingularLowerCase}}Service;
+
+    public function __construct({{modelNameSingular}}Service ${{modelNameSingularLowerCase}}Service)
+    {
+        $this->{{modelNameSingularLowerCase}}Service = ${{modelNameSingularLowerCase}}Service;
+    }
+    
+    public function index()
+    {
+        return view($this->folder . '.index');
+    }
+
+    public function load(Request $request)
+    {
+        $query = [];
+        $filters = $request->only(['name', 'status', 'date_range']);
+
+        if (!empty($filters['name'])) {
+            $query['name'] = $filters['name'];
+        }
+
+        if (!empty($filters['status'])) {
+            $query['status'] = $filters['status'];
+        }
+
+        if (!empty($filters['date_range'])) {            
+            [$startDate, $endDate] = explode(' até ', $filters['date_range']);
+            $query['start_date'] = Carbon::createFromFormat('d/m/Y', $startDate)->format('Y-m-d');
+            $query['end_date'] = Carbon::createFromFormat('d/m/Y', $endDate)->format('Y-m-d');
+        }
+
+        $results = $this->{{modelNameSingularLowerCase}}Service->getAll{{modelName}}($filters);
+
+        return view($this->folder . '.index_load', compact('results'));
+    }
+
+    public function create()
+    {
+        $statuses = Status::default();
+
+        return view($this->folder . '.form', compact('statuses'));
+    }
+
+    public function store(Request $request)
+    {
+        $result = $request->all();
+
+        $rules = {{rules}};
+        $messages = {{messages}};
+
+        $validator = Validator::make($result, $rules, $messages);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->first(), 422);
+        }
+
+        ${{modelNameSingularLowerCase}} = $this->{{modelNameSingularLowerCase}}Service->create{{modelNameSingular}}($result);
+
+        return response()->json($this->name . ' adicionado com sucesso', 200);
+    }
+
+    public function edit($id)
+    {  
+        $result = $this->{{modelNameSingularLowerCase}}Service->get{{modelNameSingular}}ById($id);
+        $statuses = Status::default();
+
+        return view($this->folder . '.form', compact('result', 'statuses'));                
+    }
+
+    public function update(Request $request, $id)
+    {
+        $result = $request->all();
+        
+        // 'email'         => "unique:{{modelNamePluralLowerCase}},email,$id,id",
+        $rules = {{rules}};
+        $messages = {{messages}};
+
+        $validator = Validator::make($result, $rules, $messages);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->first(), 422);
+        }
+
+        ${{modelNameSingularLowerCase}} = $this->{{modelNameSingularLowerCase}}Service->update{{modelNameSingular}}($id, $result);
+
+        return response()->json($this->name . ' atualizado com sucesso', 200);
+    }
+
+    public function delete($id)
+    {
+        $this->{{modelNameSingularLowerCase}}Service->delete{{modelNameSingular}}($id);
+
+        return response()->json($this->name . ' excluído com sucesso', 200);
+    }
+}

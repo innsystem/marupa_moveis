@@ -1,0 +1,26 @@
+/* Brand 1 ---------------------------------- */
+.brand-img {
+    &-wrap {
+        border: 1px solid $border-color;
+        padding: 120px 40px;
+    }
+    opacity: 1;
+    transition: 0.4s ease-in-out;
+    filter: grayscale(100) brightness(0.5);
+    text-align: center;
+    &:hover {
+        filter: none;
+    }
+}
+
+@include lg {
+    .brand-img-wrap {
+        padding: 60px 40px;
+    }
+}
+
+@include xs {
+    .brand-img {
+        text-align: center;
+    }
+}

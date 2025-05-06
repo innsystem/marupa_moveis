@@ -1,0 +1,315 @@
+.footer-wrapper {
+    position: relative;
+    z-index: 2;
+    .newsletter-title {
+        color: $white-color;
+    }
+}
+.widget-area {
+    padding-top: 130px;
+    padding-bottom: 90px;
+}
+
+.copyright-wrap {
+    padding: 20px 0;
+}
+
+.copyright-text {
+    margin: 0;
+    font-size: 14px;
+    color: $white-color;
+    a {
+        color: $theme-color;
+        &:hover {
+            color: $white-color;
+        }
+    }
+}
+
+.footer-info {
+    position: relative;
+    font-weight: 500;
+    margin-bottom: 0;
+    margin-top: -0.34em;
+    &.has-icon {
+        padding-left: 32px;
+    }
+    i {
+        color: $body-color;
+        position: absolute;
+        top: 7px;
+        left: 0;
+    }
+    .link {
+        display: block;
+        color: $white-color;
+        &:hover {
+            color: $theme-color;
+        }
+    }
+    &-box {
+        border: 1px solid $border-color;
+        .footer-info {
+            max-width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0;
+            > i {
+                color: $theme-color;
+            }
+        }
+        .th-social {
+            height: 100%;
+            text-align: center;
+            padding: 15px;
+        }
+        .footer-box {
+            padding: 10px;
+            border-right: 1px solid $border-color;
+            height: 100%;
+            justify-content: center;
+        }
+    }
+}
+@include lg {
+    .footer-info {
+        i {
+            top: 5px;
+        }
+    }
+}
+
+/* Footer 1 ---------------------------------- */
+.footer-logo,
+.footer-text {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.footer-layout1 {
+    .copyright-wrap {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+    }
+    .copyright-text {
+        padding: 18px 10px;
+        border: 1px solid rgba($color: #FFFFFF, $alpha: 0.2);
+        border-bottom: none;
+    }
+    .widget-area {
+        padding-top: 110px;
+        padding-bottom: 110px;
+    }
+}
+
+@include md {
+    .footer-info-box .th-social {
+        padding: 10px;
+    }
+    .footer-layout1 {
+        .widget-area {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+    }
+}
+
+@include sm {
+    .footer-info-box .footer-box {
+        border-right: none;
+    }
+}
+
+@include xs {
+    .footer-layout1 {
+        .th-social {
+            max-width: 230px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .footer-info {
+            max-width: 230px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+/* Footer 2 ---------------------------------- */
+.footer-layout2 {
+    background-color: #1b1b1b;
+    .widget-area {
+        padding-top: 100px;
+        padding-bottom: 37px;
+    }
+    .copyright-wrap {
+        padding: 20px 0 20px 0;
+        border-top: 1px solid rgba($color: #A7A7A7, $alpha: 0.2);
+    }
+}
+
+/* Footer 3 ---------------------------------- */
+.footer-menu {
+    margin-bottom: 35px;
+    ul {
+		padding-left: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 50px;
+    }
+    li {
+        display: inline-block;
+        a {
+            font-size: 16px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: $white-color;
+            &:hover {
+                color: $theme-color;
+            }
+        }
+    }
+}
+.footer-info2 {
+    color: $white-color;
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+    a {
+        font-family: inherit;
+        color: inherit;
+        display: inline-block;
+        &:hover {
+            color: $theme-color;
+        }
+    }
+}
+.footer-layout3 {
+    text-align: center;
+    background-color: #1b1b1b;
+	.widget-area {
+		padding-top: 120px;
+		padding-bottom: 120px;
+	}
+    .copyright-wrap {
+        background-color: #0f0f0f;
+    }
+    .copyright-text {
+        font-family: $para-font;
+    }
+    .footer-menu {
+        > ul {
+            margin-bottom: 0;
+        }
+        padding: 15px 0;
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+    }
+}
+
+@include lg {
+	.footer-menu {
+		ul {
+			gap: 15px 28px;
+		}
+		li {
+			a {
+				letter-spacing: 0.15em;
+			}
+		}
+	}
+}
+
+@include md {
+	.footer-layout3 {
+		text-align: center;
+		background-color: #1b1b1b;
+		.widget-area {
+			padding-top: 90px;
+			padding-bottom: 90px;
+		}
+	}
+}
+
+
+/* Footer 1 ---------------------------------- */
+.info-box {
+	display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    max-width: 300px;
+    &:last-child {
+        margin-bottom: -5px;
+    }
+    &_icon {
+        @include equal-size-lineHeight(40px);
+        min-width: 40px;
+        font-size: 20px;
+        background-color: $body-bg;
+        color: $theme-color;
+        text-align: center;
+        margin-right: 10px;
+    }
+    &_label {
+        font-size: 14px;
+        line-height: 1;
+        display: block;
+        margin-bottom: 8px;
+    }
+    &_link,
+	&_text {
+        line-height: 1;
+		display: block;
+		color: $white-color;
+		font-size: 20px;
+        font-family: $title-font;
+        margin-bottom: 0;
+	}
+	&_link {
+        display: inline-block;
+		&:hover {
+			color: $theme-color;
+		}
+	}
+}
+.footer-layout4 {
+    background-color: #1B1B1B;
+    .footer-logo,
+    .footer-text {
+        text-align: left;
+    }
+    .footer-logo {
+        margin-top: -8px;
+        margin-bottom: 33px;
+    }
+    .footer-text {
+        margin-bottom: 25px;
+    }
+    .copyright-wrap {
+        border-top: 1px solid $border-color;
+    }
+}
+.list-two-column {
+    display: flex;
+    gap: 40px;
+}
+
+@include md {
+    .footer-layout4 {
+        .th-widget-about {
+            max-width: 100%;
+        }
+    }
+}
+
+@include xs {
+    .list-two-column {
+        flex-wrap: wrap;
+        gap: 27px;
+    }
+}

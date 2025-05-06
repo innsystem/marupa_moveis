@@ -1,0 +1,221 @@
+/* Blog 1 ---------------------------------- */
+.blog-meta {
+    &.style2 {
+        span,
+        a {
+            font-size: 20px;
+            letter-spacing: 0.1em;
+            color: $white-color;
+            margin-right: 0;
+            font-weight: 400;
+            &:after {
+                content: "-";
+                position: relative;
+                top: -2px;
+                margin-right: 6px;
+                padding-left: 10px;
+                display: inline-block;
+                color: $white-color !important;
+            }
+            &:last-child {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+    a:hover {
+        color: $theme-color;
+    }
+}
+.blog-count {
+    color: $theme-color;
+    margin-bottom: 20px;
+    margin-top: -0.2em;
+    transition: 0.4s;
+}
+
+.blog-card {
+    &-wrap {
+        display: flex;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    padding: 40px;
+    position: relative;
+    flex: 1;
+    transition: 0.4s ease-in-out;
+    &:nth-child(2) {
+        margin-top: 100px;
+    }
+    &:nth-child(3) {
+        margin-top: 200px;
+    }
+    .blog-img {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: 0.4s ease-in-out;
+        &::before {
+            content: "";
+            @include equal-size(100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #202020;
+            opacity: 1;
+            transition: 0.4s ease-in-out;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .blog-meta {
+        margin-bottom: 20px;
+    }
+    .blog-text {
+        margin-bottom: 20px;
+        margin-top: -1px;
+    }
+    .link-btn {
+        margin-bottom: -0.2em;
+    }
+    &:hover {
+        .blog-img {
+            &::before {
+                background-color: $black-color;
+                opacity: 0.6;
+            }
+        }
+        .blog-count {
+            color: $white-color;
+        }
+    }
+}
+
+@include ml {
+    .blog-meta {
+        &.style2 {
+            span,
+            a {
+                font-size: 17px;
+                letter-spacing: 0.05em;
+            }
+        }
+    }
+    .blog-card {
+        padding: 40px 20px;
+    }
+}
+
+@include md {
+    .blog-card {
+        &-wrap {
+            flex-direction: column;
+        }
+        padding: 40px 40px;
+        &:nth-child(2) {
+            margin-top: 0;
+        }
+        &:nth-child(3) {
+            margin-top: 0;
+        }
+    }
+}
+
+@include vxs {
+    .blog-card {
+        padding: 40px 20px;
+    }
+}
+
+/* Blog 2 ---------------------------------- */
+.blog-box { 
+    position: relative;
+    padding: 40px 0 40px 40px;
+    z-index: 2;
+    &:before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        border: 1px solid $border-color;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.4s ease-in-out;
+        pointer-events: none;
+    }
+    .blog-meta {
+        margin-bottom: 20px;
+    }
+    .blog-text {
+        margin-bottom: 20px;
+        margin-top: -1px;
+    }
+    .blog-count {
+        color: transparent;
+        -webkit-text-stroke: 0.5px $theme-color;
+    }
+    .blog-content {
+        padding-right: 40px;
+    }
+    .blog-img {
+        margin-top: 35px;
+        position: relative;
+        z-index: 2;
+        &:after {
+            content: "";
+            height: calc(100% + 20px);
+            width: 4px;
+            background-color: $body-bg;
+            position: absolute;
+            bottom: -10px;
+            right: -2px;
+            z-index: -1;
+        }
+    } 
+    &:hover {
+        .blog-count {
+            color: $theme-color;
+        }
+        &:before {
+            border-color: $theme-color;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .blog-box {
+        padding: 20px 0 20px 20px;
+        .blog-content {
+            padding-right: 20px;
+        }
+    }
+}
+
+/* Blog 3 ---------------------------------- */
+.blog-grid {
+    border: 1px solid $border-color;
+    .blog-img {
+        margin: -1px;
+    }
+    .blog-content {
+        padding: 40px;
+    }
+    .blog-meta {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .blog-grid {
+        .blog-content {
+            padding: 40px 20px;
+        }
+    }
+}

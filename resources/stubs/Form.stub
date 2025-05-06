@@ -1,0 +1,9 @@
+<form id="form-request-{{modelNamePluralLowerCase}}">
+    <div class="modal-body">
+{{formInputs}}
+    </div>
+    <div class="bg-gray modal-footer justify-content-between">
+        <button type="button" class="btn btn-success button-{{modelNamePluralLowerCase}}-save"><i class="fa fa-check"></i> Salvar</button>
+        <button type="button" class="btn btn-light" data-bs-dismiss="offcanvas" aria-label="Fechar">Fechar</button>
+    </div>
+</form>

@@ -1,0 +1,22 @@
+.position-relative {
+    z-index: 1;
+}
+.body-shape1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -2;
+    animation: jumpAni 7s linear infinite;
+}
+
+@include ml {
+    .body-shape1 {
+        max-width: 50%;
+    }
+}
+
+@include xs {
+    .body-shape1 {
+        max-width: 70%;
+    }
+}

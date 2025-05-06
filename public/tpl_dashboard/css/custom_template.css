@@ -1,0 +1,71 @@
+:root {
+    --tz-logo-lg-height: 30px !important;
+    --tz-logo-sm-height: 42px !important;
+}
+
+.help-block {
+    font-size: 0.8rem;
+    color: #868686;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+input[readonly] {
+    background: #F2F2F2;
+    cursor: no-drop;
+}
+
+.fs-7 {
+    font-size: 0.75rem !important;
+}
+
+.fs-8 {
+    font-size: 0.65rem !important;
+}
+
+.offcanvas.offcanvas-end {
+    width: 650px;
+}
+
+@media screen and (max_width: 768px) {
+    .offcanvas.offcanvas-end {
+        width: 80%;
+    }
+}
+
+.swal2-styled.swal2-confirm{
+    color:#FFF; 
+}
+
+/* Rating */
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    gap: 5px;
+}
+
+.rating input[type="radio"] {
+    display: none;
+}
+
+.rating .star {
+    cursor: pointer;
+    font-size: 24px;
+    color: #ddd;
+    /* Cor padrão das estrelas */
+}
+
+.rating .star:hover,
+.rating .star:hover~.star {
+    color: #ffc107;
+    /* Cor das estrelas ao passar o mouse */
+}
+
+.rating input[type="radio"]:checked~.star {
+    color: #ffc107;
+    /* Cor das estrelas selecionadas */
+}

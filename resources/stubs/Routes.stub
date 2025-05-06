@@ -1,0 +1,15 @@
+
+
+use App\Http\Controllers\{{folderUppercase}}\{{modelName}}Controller;
+
+Route::prefix('{{folder}}')->group(function () {
+    Route::prefix('{{modelNamePluralLowerCase}}')->controller({{modelName}}Controller::class)->group(function () {
+        Route::get('/', 'index')->name('{{folder}}.{{modelNamePluralLowerCase}}.index')->middleware('permission:{{folder}}.{{modelNamePluralLowerCase}}.index');
+        Route::get('/load', 'load')->name('{{folder}}.{{modelNamePluralLowerCase}}.load')->middleware('permission:{{folder}}.{{modelNamePluralLowerCase}}.load');
+        Route::get('/create', 'create')->name('{{folder}}.{{modelNamePluralLowerCase}}.create')->middleware('permission:{{folder}}.{{modelNamePluralLowerCase}}.create');
+        Route::post('/store', 'store')->name('{{folder}}.{{modelNamePluralLowerCase}}.store')->middleware('permission:{{folder}}.{{modelNamePluralLowerCase}}.store');
+        Route::get('/{id}/edit', 'edit')->name('{{folder}}.{{modelNamePluralLowerCase}}.edit')->middleware('permission:{{folder}}.{{modelNamePluralLowerCase}}.edit');
+        Route::post('/{id}/update', 'update')->name('{{folder}}.{{modelNamePluralLowerCase}}.update')->middleware('permission:{{folder}}.{{modelNamePluralLowerCase}}.update');
+        Route::post('/{id}/delete', 'delete')->name('{{folder}}.{{modelNamePluralLowerCase}}.delete')->middleware('permission:{{folder}}.{{modelNamePluralLowerCase}}.delete');
+    });
+});

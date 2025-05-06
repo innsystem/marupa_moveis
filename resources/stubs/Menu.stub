@@ -1,0 +1,7 @@
+    
+    <li class="side-nav-item">
+        <a href="{{ route('admin.{{modelNamePluralLowerCase}}.index') }}" class="side-nav-link">
+            <i class="ri-home-line"></i>
+            <span> {{titlePage}} </span>
+        </a>
+    </li>

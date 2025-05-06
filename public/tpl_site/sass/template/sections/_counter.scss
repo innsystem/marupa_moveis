@@ -1,0 +1,141 @@
+/* Counter 1 ---------------------------------- */
+.experience-box {
+    padding: 40px;
+    margin-bottom: 45px;
+    border: 1px solid $border-color;
+    position: relative;
+    height: 310px;
+    width: 100%;
+    max-width: 210px;
+    display: grid;
+    align-content: end;
+    &::before {
+        content: "";
+        @include equal-size(100%);
+        border: 1px solid $border-color;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+    }
+    .year {
+        font-size: 128px;
+        font-weight: 600;
+        display: block;
+        color: $white-color;
+        line-height: 1;
+        margin-bottom: 15px;
+    }
+    .title {
+        color: $theme-color;
+        margin-bottom: -0.3em;
+    }
+    &_text {
+        font-size: 14px;
+        margin-bottom: -0.44em;
+    }
+}
+
+.counter-card {
+    &-wrap {
+        display: flex;
+        gap: 35px 90px;
+    }
+    position: relative;
+    max-width: 160px;
+    &_number {
+        font-size: 64px;
+        font-weight: 600;
+        color: $theme-color;
+        margin-bottom: 20px;
+    }
+    &_text {
+        font-size: 12px;
+        color: $white-color;
+        font-weight: 400;
+        display: block;
+        margin-bottom: -0.55em;
+    }
+}
+
+.counter-two-column {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 50px 20px;
+}
+
+@include lg {
+    .counter-card-wrap {
+        gap: 35px 35px;
+    }
+}
+
+@include md {
+    .counter-card {
+        max-width: 150px;
+        &-wrap {
+            gap: 35px 25px;
+        }
+        &_number {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@include sm {
+    .experience-box {
+        max-width: 100%;
+        .year {
+            font-size: 100px;
+        }
+    }
+}
+
+@include xs {
+    .counter-card {
+        &_number {
+            font-size: 36px;
+        }
+    }
+}
+
+@include vxs {
+    .counter-card {
+        &-wrap {
+            flex-wrap: wrap;
+        }
+    }
+}
+
+.counter-card-video {
+    background-color: $body-bg;
+    padding: 90px 90px 0 90px;
+    margin: -90px 90px 0 -90px;
+    position: relative;
+    z-index: 3;
+    .counter-card-wrap {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+@include lg {
+    .counter-card-video {
+        padding: 40px 40px 0 40px;
+        margin: -40px 40px 0 -40px;
+    }
+    .video-counter {
+        .th-video {
+            img {
+                min-height: 300px;
+            }
+        }
+    }
+}
+
+@include sm {
+    .counter-card-video {
+        padding: 80px 0 0 0;
+        margin: 0;
+    }
+}

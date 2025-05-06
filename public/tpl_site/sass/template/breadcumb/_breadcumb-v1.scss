@@ -1,0 +1,93 @@
+.breadcumb-menu {
+  max-width: 100%;
+  padding: 0;
+  margin: 25px 0 -0.4em 0;
+  list-style-type: none;
+  position: relative;
+  li {
+    display: inline-block;
+    margin-right: 3px;
+    padding-right: 5px;
+    list-style: none;
+    position: relative;
+
+    &:after {
+      content: '\f054';
+      position: relative;
+      margin-left: 10px;
+      font-weight: 600;
+      font-size: 16px;
+      color: $white-color;
+      font-family: $icon-font;
+    }
+
+    &:last-child {
+      padding-right: 0;
+      margin-right: 0;
+
+      &:after {
+        display: none;
+      }
+    }  
+    
+    // &:last-child {
+    //   &,
+    //   a,
+    //   span {
+    //     color: $theme-color;
+    //   }
+    // }
+  }
+
+  li,
+  a,
+  span {
+    white-space: normal;
+    color: inherit;
+    word-break: break-word;
+    font-weight: 400;
+    font-size: 20px;
+    color: $white-color;
+  }
+}
+
+.breadcumb-title {
+  color: $white-color;
+  margin: -0.22em 0 -0.12em 0;
+}
+
+
+.breadcumb-wrapper {
+  background-color: $black-color;
+  padding: 315px 0 270px 0;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 100px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+@include ml {
+  .breadcumb-wrapper {
+    margin-top: 70px;
+    padding: 235px 0 200px 0;
+  }
+}
+@include lg {
+  .breadcumb-wrapper {
+    padding: 190px 0 160px 0;
+  }
+}
+
+@include md {
+  .breadcumb-wrapper {
+    padding: 150px 0 120px 0;
+  }
+  .breadcumb-menu {
+    margin: 16px 0 -0.5em 0;
+    li,
+    a,
+    span {
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.error-number {
+  font-size: 400px;
+  font-weight: 600;
+  line-height: 1;
+  margin-top: -0.136em;
+  margin-bottom: 47px;
+  color: #686868;
+}
+
+.error-title {
+  margin-bottom: 20px;
+}
+
+.error-text {
+  margin-bottom: 55px;
+  font-size: 18px;
+}
+
+@include lg {
+  .error-number {
+    font-size: 300px;
+  }
+}
+
+@include md {
+  .error-number {
+    margin-bottom: 30px;
+  }
+  .error-text {
+    margin-bottom: 40px;
+  }
+}
+
+
+@include sm {
+  .error-number {
+    font-size: 170px;
+  }
+}

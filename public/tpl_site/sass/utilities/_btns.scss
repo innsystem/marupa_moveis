@@ -1,0 +1,294 @@
+// Primary Button
+.th-btn {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    vertical-align: middle;
+    display: inline-block;
+    text-transform: capitalize;
+    text-align: center;
+    background-color: $theme-color;
+    color: $title-black;
+	font-family: $para-font;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    padding: 22px 30px;
+    border-radius: 0;
+    border: none;
+    &:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+        width: 200%;
+        background-color: $theme-color;
+        transform-style: preserve-3d;
+        transform: scale(1, 0);
+        z-index: -1;
+        transition: 0.5s ease;
+    }
+
+    > i {
+        margin-left: 5px;
+    }
+    .line {
+        height: 2px;
+        width: 20px;
+        background-color: $title-black;
+        display: inline-block;
+        position: relative;
+        top: -4px;
+        margin: 0 3px;
+        transition: 0.4s ease-in-out;
+        &.left {
+            width: 0;
+        }
+    }
+    &:hover,
+    &.active {
+        color: $title-black;
+        .line {
+            width: 0;
+            &.left {
+                width: 20px;
+            }
+        }
+        &::before {
+            background-color: #eebd42;
+            transform-origin: center center;
+            transform: scale(1);
+        }
+    }
+
+    &.style2 {
+        background-color: transparent;
+        color: $white-color;
+        border: 1px solid $white-color;
+        padding: 20.5px 29px;
+        &:hover {
+            color: $black-color;
+            &:before {
+                background-color: $white-color;
+            }
+        }
+    }
+    &.style3 {
+        &:hover {
+            color: $black-color;
+        }
+        &:before {
+            background-color: $white-color;
+        }
+    }
+}
+
+// Icon Btn
+.icon-btn {
+    display: inline-block;
+    width: var(--btn-size, 50px);
+    height: var(--btn-size, 50px);
+    line-height: var(--btn-size, 50px);
+    font-size: var(--btn-font-size, 16px);
+    background-color: var(--icon-bg, #ffffff);
+    color: $title-color;
+    text-align: center;
+    border-radius: 50%;
+    border: none;
+
+    &:hover {
+        background-color: $theme-color;
+        color: $white-color;
+    }
+}
+
+// Play Button
+.play-btn {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+
+    > i {
+        display: inline-block;
+        width: var(--icon-size, 90px);
+        height: var(--icon-size, 90px);
+        line-height: var(--icon-size, 90px);
+        text-align: center;
+        background-color: $theme-color;
+        color: $white-color;
+        font-size: var(--icon-font-size, 1.5em);
+        border-radius: 50%;
+        z-index: 1;
+        transition: all ease 0.4s;
+    }
+
+    &:after,
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $theme-color;
+        @extend .ripple-animation;
+        z-index: -1;
+        border-radius: 50%;
+        transition: all ease 0.4s;
+    }
+
+    &:after {
+        animation-delay: 2s;
+    }
+
+    &:hover {
+        &:after,
+        &::before,
+        i {
+            background-color: $theme-color;
+            color: $title-color;
+        }
+    }
+
+    &.style2 {
+        > i {
+            --icon-size: 140px;
+            --icon-font-size: 2em;
+            background-color: transparent;
+            border: 1px solid $white-color;
+        }
+        &:after,
+        &:before {
+            background-color: transparent;
+            border: 1px solid $white-color;
+        }
+    }
+    &:hover {
+        > i {
+            border-color: $theme-color;
+        }
+        &:after,
+        &:before {
+            border-color: $theme-color;
+        }
+    }
+}
+
+.video-btn {
+    .play-btn {
+        margin-right: 25px;
+    }
+}
+
+// Link Button
+.link-btn {
+    font-weight: 400;
+    font-family: $para-font;
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    color: $theme-color;
+
+    &:before,
+    &:after {
+        content: "";
+        position: relative;
+        top: -5px;
+        width: 35px;
+        height: 1px;
+        background-color: $theme-color;
+        display: inline-block;
+        transition: all ease 0.4s;
+    }
+    &:before {
+        margin-right: 10px;
+    }
+    &:after {
+        width: 0;
+        margin-left: 10px;
+    }
+
+    &:hover {
+        &:before,
+        &:after {
+            background-color: $white-color;
+        }
+        &:before {
+            width: 0;
+            margin-right: 0;
+        }
+        &:after {
+            width: 35px;
+        }
+    }
+}
+.link-btn2 {
+    font-family: $para-font;
+    font-size: 20px;
+    color: $body-color;
+    text-decoration: underline;
+    &:hover {
+        color: $theme-color;
+        text-decoration: underline;
+    }
+}
+
+// Scroll To Top
+.scroll-top {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    display: block;
+    border-radius: 50px;
+    z-index: 10000;
+    opacity: 1;
+    visibility: hidden;
+    transform: translateY(45px);
+    transition: all 300ms linear;
+    &:after {
+        content: "\f062";
+        font-family: $icon-font;
+        position: absolute;
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        color: $title-black;
+        left: 0;
+        top: 0;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+        display: block;
+        z-index: 1;
+        border: 2px solid $theme-color;
+        box-shadow: none;
+        border-radius: 50%;
+    }
+    svg {
+        color: $theme-color;
+        border-radius: 50%;
+        background: $white-color;
+        path {
+            fill: none;
+        }
+    }
+    .progress-circle path {
+        stroke: $title-black;
+        stroke-width: 20px;
+        box-sizing: border-box;
+        transition: all 400ms linear;
+    }
+    &.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}

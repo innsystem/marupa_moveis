@@ -1,0 +1,98 @@
+/* Faq 1 ---------------------------------- */ 
+#faqAccordion {
+    border-bottom: 1px solid $border-color;
+}
+.accordion-card {
+    transition: 0.4s ease-in-out;
+    .accordion-button {
+        background-color: transparent;
+        border: 0;
+        padding: 80px 50px 80px 50px;
+        border-top: 1px solid $border-color;
+        gap: 10px;
+        margin-bottom: 0;
+        text-align: left;
+        transition: 0.3s;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &:after {
+            content: "+";
+            height: unset;
+            width: unset;
+            line-height: 1;
+            background-image: none;
+            font-weight: 100;
+            font-family: var(--body-font);
+            font-size: 60px;
+
+        }
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        &:not(.collapsed) {
+            color: $theme-color;
+            border-bottom: 1px solid $border-color;
+            // background-color: $smoke-color;
+            // padding: 17px 70px 17px 25px;
+            &:after {
+                transform: rotate(45deg);
+            }
+        }
+    }
+    .accordion-collapse {
+        border: none;
+    }
+    .accordion-body {
+        padding: 80px 0 80px 50px;
+        display: flex;
+        align-items: center;
+        gap: 30px 100px;
+        flex-direction: row-reverse;
+    }
+    .faq-title {
+        margin-bottom: 25px;
+    }
+    .faq-text {
+        margin-bottom: 0;
+    }
+    .faq-img {
+        height: 100%;
+        img {
+            max-width: max-content;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@include lg {
+    .accordion-card {
+        .faq-img {
+            min-width: 45%;
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+@include md {
+    .accordion-card {
+        .accordion-button {
+            padding: 40px 0 40px 0;
+        }
+        .accordion-body {
+            padding: 40px 0 40px;
+            flex-direction: column;
+        }
+        .faq-img {
+            min-width: 100%;
+        }
+    }
+}

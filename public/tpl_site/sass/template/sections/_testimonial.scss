@@ -1,0 +1,278 @@
+/* Testimonial 1 ---------------------------------- */
+.testi-video {
+    &-slide {
+        text-align: right;
+        .big-title {
+            display: block;
+            max-width: 1440px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+            padding: 10px;
+        }
+    }
+    position: relative;
+    @include hd {
+        img {
+            width: 100%;
+        }
+    }
+    img {
+        height: 760px;
+    }
+    .play-btn {
+        position: absolute;
+        top: 50%;
+        left: 26%;
+        transform: translate(0, -50%);
+    }
+} 
+.testi-box {
+    &-area {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 3;
+    }
+    &-wrap {
+        max-width: 750px;
+        padding: 60px 0 120px 70px;
+        background-color: $body-bg;
+        position: relative;
+        .icon-box {
+            position: absolute;
+            bottom: 0;
+            left: -65px;
+        }
+    }
+    padding: 40px;
+    margin-right: 40px;
+    position: relative;
+    z-index: 2;
+    border: 1px solid $border-color;
+    &_img {
+        min-width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    &_icon {
+        position: absolute;
+        bottom: 40px;
+        right: -40px;
+        z-index: -1;
+        background-color: $body-bg;
+        padding: 15px 0;
+    }
+    &_profile {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+    &_name {
+        font-weight: 600;
+        font-size: 20px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        margin-top: -0.24em;
+    }
+    &_desig {
+        font-size: 14px;
+        font-family: $para-font;
+        color: $theme-color;
+        margin-bottom: -0.491em;
+        display: block;
+    }
+    &_text {
+        margin-bottom: 30px;
+        font-style: italic;
+    }
+}
+
+@include ml {
+    .testi-video {
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    .testi-box {
+        &-area {
+            position: relative;
+            bottom: unset;
+            right: unset;
+            left: 0;
+            margin-top: -120px;
+        }
+        &-wrap {
+            max-width: 100%;
+            padding: 60px 60px 0 60px;
+            margin-left: 15px;
+            margin-right: 15px;
+            .icon-box {
+                display: none;
+            }
+        }
+    }
+}
+
+@include md {
+    .testi-video {
+        img {
+            height: 600px;
+            object-fit: cover;
+        }
+    }
+}
+
+@include sm {
+    .testi-video {
+        img {
+            height: 500px;
+        }
+    }
+    .testi-box {
+        &-area {
+            margin-top: -60px;
+        }
+        &-wrap {
+            padding: 50px 0 0 20px;
+        }
+        margin-right: 20px;
+        &_icon {
+            max-width: 70px;
+        }
+        &_icon {
+            right: -10px;
+        }
+    }
+}
+
+@include xs {
+    .testi-box {
+        padding: 40px 20px;
+    }
+}
+
+@include vxs {
+    .testi-box {
+        &-wrap {
+            padding: 50px 10px 0 10px;
+        }
+        margin-right: 0;
+        &_img {
+            min-width: 70px;
+            max-width: 70px;
+            height: 70px;
+        }
+        &_profile {
+            gap: 15px;
+        }
+        &_icon {
+            right: -4px;
+            display: none;
+        }
+    }
+}
+
+/* Testimonial 2 ---------------------------------- */
+.testi-card {
+    &-wrap {
+        position: relative;
+        border: 1px solid $border-color;
+        padding: 70px;
+        .testi-title {
+            position: absolute;
+            left: 70px;
+            top: 62px;
+        }
+        .icon-box {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        .slick-arrow {
+            border-color: $smoke-color;
+            background-color: $smoke-color;
+            &:hover {
+                background-color: $theme-color;
+                border-color: $theme-color;
+            }
+        }
+    }
+    display: flex;
+    gap: 100px;
+    &_img {
+        min-width: 200px;
+        display: grid;
+        align-items: end;
+        padding-bottom: 20px;
+        padding-left: 15px;
+        position: relative;
+        > img {
+            border-radius: 50%;
+        }
+    }
+    &_icon {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    &_text {
+        margin-bottom: 30px;
+        font-weight: 400;
+    }
+}
+
+@include ml {
+    .testi-card {
+        gap: 50px;
+        &_text {
+            font-size: 40px;
+        }
+    }
+}
+
+@include lg {
+    .testi-card_text {
+        font-size: 30px;
+        margin-bottom: 25px;
+    }
+}
+
+@include md {
+    .testi-card {
+        &-wrap {
+            padding: 60px 20px;
+            .testi-title {
+                left: 20px;
+                top: 52px;
+            }
+        }
+        gap: 30px;
+    }
+}
+
+@include sm {
+    .testi-card {
+        &-wrap {
+            padding: 60px 20px;
+        }
+        flex-wrap: wrap;
+    }
+}
+
+@include xs {
+    .testi-card_text {
+        font-size: 24px;
+    }
+    .testi-video {
+        &-slide .big-title {
+            font-size: 100px;
+        }
+        margin-top: -30px;
+    }
+}
