@@ -19,7 +19,7 @@
     <!-- Slick Slider -->
     <link rel="stylesheet" href="{{ asset('/tpl_site/css/slick.min.css') }}">
     <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('/tpl_site/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/tpl_site/css/style.css?1') }}">
 
     @yield('pageCSS')
 </head>
@@ -200,7 +200,7 @@
     <!-- Wow Animation -->
     <script src="{{ asset('/tpl_site/js/wow.min.js') }}"></script>
     <!-- Main Js File -->
-    <script src="{{ asset('/tpl_site/js/main.js?1'.rand()) }}"></script>
+    <script src="{{ asset('/tpl_site/js/main.js?2') }}"></script>
 
     @yield('pageJS')
 
