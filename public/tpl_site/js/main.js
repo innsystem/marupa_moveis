@@ -88,6 +88,11 @@
                 submenu.next("a").append(opt.appendElement);
             });
 
+            // Fecha o menu mobile ao clicar em qualquer link dentro do menu mobile
+            menu.find('.th-mobile-menu a').on('click', function() {
+                menu.removeClass(opt.bodyToggleClass);
+            });
+
             // Toggle Submenu
             function toggleDropDown($element) {
                 if ($($element).next("ul").length > 0) {
@@ -789,6 +794,5 @@
     //     if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
     //       return false;
     //     }
-    //   }
-    
+    //   }    
 })(jQuery);

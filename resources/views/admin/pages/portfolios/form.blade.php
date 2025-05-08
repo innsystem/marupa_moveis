@@ -7,6 +7,7 @@
             </div>
             <div id="preview-container" class="mt-2"></div>
             <hr>
+            @if(isset($result->images))
             @foreach($result->images as $image)
             <div id="row_portfolio_image_{{$image->id}}" class="border p-1 rounded mb-2" data-id="{{ $image->id }}" style="display: inline-block; margin-right: 10px; text-align: center;">
                 <img src="{{ asset('storage/' . $image->image_path) }}" alt="Imagem" class="avatar-md border rounded" style="object-fit: cover; margin-bottom: 5px;">
@@ -19,12 +20,24 @@
                 </div>
             </div>
             @endforeach
+            @endif
         </div>
 
         <div class="form-group mb-3">
             <label for="title" class="col-sm-12">Título do Portfólio:</label>
             <div class="col-sm-12">
                 <input type="text" class="form-control" id="title" name="title" placeholder="Digite o title" value="{{ isset($result->title) ? $result->title : '' }}">
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="categories" class="col-sm-12">Categorias:</label>
+            <div class="col-sm-12">
+                <select class="form-control select2-categories" id="categories" name="categories[]" multiple="multiple" style="width: 100%;">
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" @if(isset($result) && $result->categories->contains($category->id)) selected @endif>{{ $category->name }}</option>
+                    @endforeach
+                </select>
+                <small class="form-text text-muted">Digite para criar uma nova categoria e pressione Enter.</small>
             </div>
         </div>
         <div class="form-group mb-3 d-none">

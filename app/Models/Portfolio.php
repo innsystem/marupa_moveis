@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\PortfolioCategory;
 
 class Portfolio extends Model
 {
@@ -24,5 +25,10 @@ class Portfolio extends Model
         }
 
         return asset('galerias/avatares/sem_foto.jpg');
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(PortfolioCategory::class, 'portfolio_category_portfolio');
     }
 }

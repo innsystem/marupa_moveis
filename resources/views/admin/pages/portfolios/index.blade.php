@@ -79,6 +79,9 @@
 
 <!-- Flatpickr Timepicker css -->
 <link href="{{ asset('/tpl_dashboard/vendor/flatpickr/flatpickr.min.css') }}" rel="stylesheet" type="text/css" />
+
+<!-- Select2 css -->
+<link href="{{ asset('/tpl_dashboard/vendor/select2/css/select2.min.css') }}" rel="stylesheet" />
 @endsection
 
 @section('pageJS')
@@ -92,6 +95,9 @@
 <!-- Flatpickr Timepicker Plugin js -->
 <script src="{{ asset('/tpl_dashboard/vendor/flatpickr/flatpickr.min.js') }}"></script>
 <script src="{{ asset('/tpl_dashboard/vendor/flatpickr/l10n/pt.js') }}"></script>
+
+<!-- Select2 Plugin js -->
+<script src="{{ asset('/tpl_dashboard/vendor/select2/js/select2.full.min.js') }}"></script>
 
 <script>
     $(document).ready(function() {
@@ -184,6 +190,21 @@
             space: '-',
             replace: '/\s?\([^\)]*\)/gi',
             AND: 'e'
+        });
+
+        $('.select2-categories').select2({
+            tags: true,
+            placeholder: 'Selecione ou crie categorias',
+            width: 'resolve',
+            language: {
+                noResults: function() { return 'Nenhuma categoria encontrada'; },
+                inputTooShort: function() { return 'Digite para criar uma nova categoria'; }
+            },
+            createTag: function(params) {
+                var term = $.trim(params.term);
+                if (term === '') return null;
+                return { id: term, text: term, newTag: true };
+            }
         });
     }
 

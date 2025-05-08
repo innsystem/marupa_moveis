@@ -44,13 +44,13 @@
                 <div class="pe-xxl-5">
                     <h2 class="sec-title mb-40">Sobre <span class="text-gradient">Marupa Móveis</span></h2>
                     <p class="fs-5 mb-30">Com uma fábrica de 8000 m2 e mais de 100 colaboradores, 37 anos de história, somos referência nacional em marcenaria de alto padrão reconhecida pela excelência, sofisticação e atenção aos detalhes. Atuamos em parceria com os mais renomados arquitetos e designers do país, transformando projetos em obras únicas e personalizadas, no Brasil e no exterior. Nossa expertise se estende por diversos segmentos, incluindo hotéis, lojas, shoppings e residências de alto padrão. Qualidade, inovação e compromisso definem o nosso trabalho.</p>
-                    <a href="{{ url('/') }}#section-services" class="th-btn"><span class="line left"></span> Nossos Serviços <span class="line"></span></a>
+                    <!-- <a href="{{ url('/') }}#section-services" class="th-btn"><span class="line left"></span> Nossos Serviços <span class="line"></span></a> -->
                 </div>
             </div>
             <div class="col-xl-6 align-self-center wow fadeInUp" data-wow-delay="0.2s">
                 <div class="img-box8">
                     <div class="img-row">
-                        <div class="experience-card wow fadeInLeft" data-wow-delay="0.2s">
+                        <div class="experience-card d-none wow fadeInLeft" data-wow-delay="0.2s">
                             <span class="year text-gradient">
                                 45
                             </span>
@@ -157,8 +157,8 @@
                             </a>
                         </div>
                         <h3 class="h5 project-title"><a href="{{ route('site.projects.show', $project->slug) }}">{{ $project->title }}</a></h3>
-                        <p class="project-map"><i class="fal fa-location-dot"></i>{{ $project->location ?? '' }}</p>
-                        <div class="project-number">{{ $loop->iteration < 10 ? '0'.$loop->iteration : $loop->iteration }}</div>
+                        {!! $project->description ?? '' !!}
+                        <!-- <div class="project-number">{{ $loop->iteration < 10 ? '0'.$loop->iteration : $loop->iteration }}</div> -->
                     </div>
                 </div>
                 @endforeach
@@ -210,7 +210,7 @@
 
 <!--==============================-->
 <!-- About Area  -->
-<div id="about-sec" class="space">
+<div id="about-sec" class="space d-none d-md-block">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-6 mb-5 mb-xl-0 wow fadeInLeft" data-wow-delay="0.2s">

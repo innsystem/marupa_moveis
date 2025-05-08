@@ -10,6 +10,7 @@ use App\Models\Status;
 use App\Models\Portfolio;
 use Carbon\Carbon;
 use App\Services\PortfolioService;
+use App\Models\PortfolioCategory;
 
 class PortfoliosController extends Controller
 {
@@ -61,8 +62,8 @@ class PortfoliosController extends Controller
     public function create()
     {
         $statuses = Status::default();
-
-        return view($this->folder . '.form', compact('statuses'));
+        $categories = PortfolioCategory::orderBy('id')->get();
+        return view($this->folder . '.form', compact('statuses', 'categories'));
     }
 
     public function store(Request $request)
@@ -94,7 +95,20 @@ class PortfoliosController extends Controller
 
         $portfolio = $this->portfolioService->createPortfolio($result);
 
+        // Sincronizar categorias
         if (isset($portfolio) && isset($portfolio->id)) {
+            $categories = $request->input('categories', []);
+            $categoryIds = [];
+            foreach ($categories as $cat) {
+                if (is_numeric($cat)) {
+                    $categoryIds[] = $cat;
+                } else {
+                    $newCat = PortfolioCategory::firstOrCreate(['name' => $cat]);
+                    $categoryIds[] = $newCat->id;
+                }
+            }
+            $portfolio->categories()->sync($categoryIds);
+
             if ($request->hasFile('images')) {
                 $images = $request->file('images');
                 $thumbIndex = $request->input('thumb');
@@ -116,8 +130,8 @@ class PortfoliosController extends Controller
     {
         $result = $this->portfolioService->getPortfolioById($id);
         $statuses = Status::default();
-
-        return view($this->folder . '.form', compact('result', 'statuses'));
+        $categories = PortfolioCategory::orderBy('id')->get();
+        return view($this->folder . '.form', compact('result', 'statuses', 'categories'));
     }
 
     public function update(Request $request, $id)
@@ -149,7 +163,20 @@ class PortfoliosController extends Controller
 
         $portfolio = $this->portfolioService->updatePortfolio($id, $result);
 
+        // Sincronizar categorias
         if (isset($portfolio) && isset($portfolio->id)) {
+            $categories = $request->input('categories', []);
+            $categoryIds = [];
+            foreach ($categories as $cat) {
+                if (is_numeric($cat)) {
+                    $categoryIds[] = $cat;
+                } else {
+                    $newCat = PortfolioCategory::firstOrCreate(['name' => $cat]);
+                    $categoryIds[] = $newCat->id;
+                }
+            }
+            $portfolio->categories()->sync($categoryIds);
+
             if ($request->hasFile('images')) {
                 $images = $request->file('images');
                 $thumbIndex = $request->input('thumb');

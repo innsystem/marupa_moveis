@@ -7,6 +7,7 @@ use App\Models\Page;
 use App\Models\Service;
 use App\Models\Portfolio;
 use App\Models\Testimonial;
+use App\Models\PortfolioCategory;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -38,12 +39,27 @@ class SiteController extends Controller
     public function projectsIndex()
     {
         $projects = Portfolio::where('status', 1)->orderBy('created_at', 'desc')->get();
-        return view('site.pages.projects', compact('projects'));
+        $portfolioCategories = PortfolioCategory::orderBy('name')->get();
+        return view('site.pages.projects', compact('projects', 'portfolioCategories'));
     }
 
     public function projectsShow($slug)
     {
         $project = Portfolio::where('slug', $slug)->firstOrFail();
-        return view('site.pages.project_details', compact('project'));
+        $portfolioCategories = PortfolioCategory::orderBy('name')->get();
+        return view('site.pages.project_details', compact('project', 'portfolioCategories'));
+    }
+
+    public function projectsCategory($slug)
+    {
+        $category = PortfolioCategory::where('slug', $slug)->firstOrFail();
+        $portfolios = $category->portfolios()->where('status', 1)->paginate(12);
+        return view('site.pages.projects_category', compact('category', 'portfolios'));
+    }
+
+
+    public function historyIndex()
+    {
+        return view('site.pages.history');
     }
 }

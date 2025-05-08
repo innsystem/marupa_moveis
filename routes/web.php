@@ -16,6 +16,8 @@ Route::controller(SiteController::class)->group(function () {
     // Rotas de projetos
     Route::get('/projetos', 'projectsIndex')->name('site.projects.index');
     Route::get('/projetos/{slug}', 'projectsShow')->name('site.projects.show');
+    Route::get('/historia', 'historyIndex')->name('site.history');
+    Route::get('/projetos/categoria/{slug}', 'projectsCategory')->name('site.projects.category');
 });
 
 Route::controller(AuthController::class)->prefix('auth')->group(function () {

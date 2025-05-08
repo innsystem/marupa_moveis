@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Setting;
 use App\Models\Service;
+use App\Models\PortfolioCategory;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +30,11 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $getServices = Service::where('status', 1)->orderBy('sort_order')->get();
             $view->with('getServices', $getServices);
+        });
+
+        view()->composer('*', function ($view) {
+            $getPortfolioCategories = PortfolioCategory::orderBy('id', 'ASC')->get();
+            $view->with('getPortfolioCategories', $getPortfolioCategories);
         });
     }
 }

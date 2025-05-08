@@ -37,19 +37,19 @@
             <div class="th-mobile-menu">
                 <ul>
                     <li>
-                        <a href="{{ route('site.index') }}#header">Início</a>
+                        <a href="{{ route('site.index') }}#header" class="link-href">Início</a>
                     </li>
                     <li>
-                        <a href="{{ route('site.index') }}#about-sec">Sobre Nós</a>
+                        <a href="{{ route('site.index') }}#section-services" class="link-href">Serviços</a>
                     </li>
-                    <li>
-                        <a href="{{ route('site.index') }}#section-services">Serviços</a>
-                    </li>                    
                     <li>
                         <a href="{{ route('site.projects.index') }}">Projetos</a>
-                    </li>                    
+                    </li>
                     <li>
-                        <a href="{{ route('site.index') }}">Contato</a>
+                        <a href="{{ route('site.history') }}">História</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('site.index') }}#footer" class="link-href">Contato</a>
                     </li>
                 </ul>
             </div>
@@ -75,19 +75,23 @@
                                     <nav class="main-menu d-none d-lg-inline-block">
                                         <ul>
                                             <li>
-                                                <a href="{{ route('site.index') }}#header">Início</a>
+                                                <a href="{{ route('site.index') }}#header" class="link-href">Início</a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('site.index') }}#about-sec">Sobre Nós</a>
+                                                <a href="{{ route('site.index') }}#section-services" class="link-href">Serviços</a>
+                                            </li>
+                                            <li class="menu-item-has-children"><a href="{{ route('site.projects.index') }}">Projetos</a>
+                                                <ul class="sub-menu">
+                                                    @foreach($getPortfolioCategories as $category)
+                                                    <li><a href="{{ route('site.projects.category', $category->slug) }}">{{ $category->name }}</a></li>
+                                                    @endforeach
+                                                </ul>
                                             </li>
                                             <li>
-                                                <a href="{{ route('site.index') }}#section-services">Serviços</a>
+                                                <a href="{{ route('site.history') }}">História</a>
                                             </li>
                                             <li>
-                                                <a href="{{ route('site.projects.index') }}">Projetos</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('site.index') }}">Contato</a>
+                                                <a href="{{ route('site.index') }}#footer" class="link-href">Contato</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -108,7 +112,7 @@
     <!--==============================
     Footer Area
     ==============================-->
-    <footer class="footer-wrapper footer-layout4">
+    <footer id="footer" class="footer-wrapper footer-layout4">
         <div class="widget-area">
             <div class="container">
                 <div class="row justify-content-between">
@@ -118,8 +122,6 @@
                                 <img src="{{ asset('/marupa_moveis_branco.png') }}" alt="Marupa Móveis" style="max-width: 260px;">
                             </div>
                             <div class="th-widget-about w-100" style="max-width: 90%;">
-                                <p class="footer-text">A Marupa Móveis é uma empresa que oferece serviços de design e fabricação de móveis personalizados.</p>
-
                                 <p class="footer-text mt-3"><b>Responsabilidade Ambiental</b> </p>
                                 <!-- Espaço para imagem do selo FSC -->
                                 <p class="footer-text"><b>Certificação FSC&reg;</b><br>
@@ -129,20 +131,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="widget widget_nav_menu footer-widget style2">
-                            <h3 class="widget_title">Serviços</h3>
-                            <div class="menu-all-pages-container">
-                                <div class="list-two-column">
-                                    <ul class="menu">
-                                        @foreach($getServices as $service)
-                                        <li><a href="{{ route('site.index') }}#section-services">{{ $service->title }}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="widget footer-widget style2">
                             <h3 class="widget_title">Contato</h3>
@@ -211,9 +200,25 @@
     <!-- Wow Animation -->
     <script src="{{ asset('/tpl_site/js/wow.min.js') }}"></script>
     <!-- Main Js File -->
-    <script src="{{ asset('/tpl_site/js/main.js') }}"></script>
+    <script src="{{ asset('/tpl_site/js/main.js?1'.rand()) }}"></script>
 
     @yield('pageJS')
+
+    <script>
+        // Scroll suave para links de âncora
+        $(document).ready(function() {
+            $(document).on('click', '.link-href', function(event) {
+                // Pega apenas o hash do href (ex: #section-services)
+                var hash = this.hash;
+                if (hash && $(hash).length) {
+                    event.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - 80 // ajuste para header fixo se necessário
+                    }, 800);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

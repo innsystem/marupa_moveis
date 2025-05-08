@@ -11,7 +11,7 @@
             <div class="col-12 col-md-8 col-lg-9">
                 <div class="project-details">
                     <h2 class="sec-title fw-normal mb-2">{{ $project->title }}</h2>
-                    <p class="project-map mb-40"><i class="fal fa-location-dot"></i>{{ $project->location ?? '' }}</p>
+                    <!-- <p class="project-map mb-40"><i class="fal fa-location-dot"></i>{{ $project->location ?? '' }}</p> -->
                     <div class="mb-4">
                         <img class="w-75" src="{{ asset($project->cover ?? '/storage/portfolios/portfolio_1.png') }}" alt="project" class="" style="border-radius: 10px;">
                     </div>
