@@ -19,7 +19,7 @@
     <!-- Slick Slider -->
     <link rel="stylesheet" href="{{ asset('/tpl_site/css/slick.min.css') }}">
     <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('/tpl_site/css/style.css?1') }}">
+    <link rel="stylesheet" href="{{ asset('/tpl_site/css/style.css?2') }}">
 
     @yield('pageCSS')
 </head>
