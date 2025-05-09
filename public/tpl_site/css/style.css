@@ -91,6 +91,7 @@ Version: 1.0.0
   --error-color: #dc3545;
   --border-color: rgba(255, 255, 255, 0.15);
   --title-font: 'Oswald', sans-serif;
+  --title-2-font: 'Roboto', sans-serif;
   --body-font: 'Oswald', sans-serif;
   --para-font: 'Poppins', sans-serif;
   --icon-font: "Font Awesome 6 Pro";
@@ -285,7 +286,7 @@ h4,
 h5,
 .h6,
 h6 {
-  font-family: var(--title-font);
+  font-family: var(--title-2-font);
   color: var(--title-color);
   text-transform: none;
   font-weight: 700;
@@ -1777,8 +1778,8 @@ textarea.is-invalid {
 /*------------------- 3.3. Titles -------------------*/
 .sec-title {
   margin-bottom: var(--section-title-space);
-  text-transform: uppercase;
-  font-weight: 600;
+  text-transform: normal !important;
+  font-weight: 500 !important;
 }
 
 .sub-title {
@@ -1919,10 +1920,10 @@ textarea.is-invalid {
 
 .th-social a {
   display: inline-block;
-  color: transparent;
+  color: #FFF;
   font-size: 24px;
   margin-right: 45px;
-  -webkit-text-stroke: 0.6px var(--white-color);
+  /* -webkit-text-stroke: 0.6px var(--white-color); */
   /* Large devices */
 }
 
@@ -1938,7 +1939,7 @@ textarea.is-invalid {
 }
 
 .th-social a:hover {
-  -webkit-text-stroke: 0.6px var(--body-color);
+  color: var(--theme-color);
 }
 
 .slider-shadow .slick-list {

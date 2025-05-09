@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
-                <p class="sub-title">Marupa Móveis</p>
+                <!-- <p class="sub-title">Marupa Móveis</p> -->
                 <h2 class="sec-title mb-40">Nossa História</h2>
                 <p class="mb-30">A nossa trajetória teve início no final dos anos 80, quando Reinaldo, ao lado de seu pai Sr. Aparecido, uniram paixão, talento e dedicação para fundar uma marcenaria com um único propósito: transformar madeira em arte, com excelência e precisão características de ambos que sempre fizeram tudo com muito capricho. O que começou como uma pequena marcenaria ao longo dos anos foi se destacando pela qualidade incomparável e atenção aos detalhes — marcas que nos acompanham até hoje.</p>
                 <p class="mb-30">Com quase quatro décadas de história, nos tornamos uma referência nacional em marcenaria de alto padrão. Atualmente, contamos com uma estrutura de 8.000 m², equipada com máquinas de última geração, e um time de mais de 100 profissionais altamente qualificados. Nosso portfólio reúne projetos assinados pelos mais renomados arquitetos do Brasil, sempre com foco em sofisticação, inovação e funcionalidade.</p>

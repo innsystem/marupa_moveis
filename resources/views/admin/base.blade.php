@@ -15,15 +15,15 @@
     <script src="{{ asset('/tpl_dashboard/js/config.js?2') }}"></script>
 
     <!-- App css -->
-    <link href="{{ asset('/tpl_dashboard/css/app.min.css') }}" rel="stylesheet" type="text/css" id="app-style" />
+    <link href="{{ asset('/tpl_dashboard/css/app.min.css?1') }}" rel="stylesheet" type="text/css" id="app-style" />
     <!-- App css -->
-    <link href="{{ asset('/tpl_dashboard/css/custom_template.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/tpl_dashboard/css/custom_template.css?1') }}" rel="stylesheet" type="text/css" />
 
     <!-- Icons css -->
     <link href="{{ asset('/tpl_dashboard/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Font Awesome -->
-    <link href="{{ asset('/plugins/fontawesome/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/plugins/fontawesome/css/all.min.css?1') }}" rel="stylesheet">
 
     <!-- SwalFire -->
     <link href="{{ asset('/plugins/sweetalert/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />

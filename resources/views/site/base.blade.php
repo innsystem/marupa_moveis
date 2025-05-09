@@ -37,7 +37,7 @@
             <div class="th-mobile-menu">
                 <ul>
                     <li>
-                        <a href="{{ route('site.index') }}#header" class="link-href">Início</a>
+                        <a href="{{ asset('/') }}" class="link-href">Início</a>
                     </li>
                     <li>
                         <a href="{{ route('site.index') }}#section-services" class="link-href">Serviços</a>
@@ -75,7 +75,7 @@
                                     <nav class="main-menu d-none d-lg-inline-block">
                                         <ul>
                                             <li>
-                                                <a href="{{ route('site.index') }}#header" class="link-href">Início</a>
+                                                <a href="{{ asset('/') }}" class="link-href">Início</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('site.index') }}#section-services" class="link-href">Serviços</a>
@@ -165,9 +165,7 @@
                                 </div>
                                 <h6 class="text-theme mb-2">Redes Sociais:</h6>
                                 <div class="th-social">
-                                    <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                    <a target="_blank" href="https://skype.com/"><i class="fab fa-skype"></i></a>
-                                    <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                                    <a target="_blank" href="https://www.instagram.com/marupamoveis/"><i class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
